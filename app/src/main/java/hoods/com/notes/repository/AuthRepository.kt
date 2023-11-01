@@ -8,56 +8,43 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 class AuthRepository {
-   val currentUser:FirebaseUser? = Firebase.auth.currentUser
+    val currentUser: FirebaseUser? = Firebase.auth.currentUser
 
-    fun hasUser():Boolean = Firebase.auth.currentUser != null
+    fun hasUser(): Boolean = Firebase.auth.currentUser != null
 
-    fun getUserId():String = Firebase.auth.currentUser?.uid.orEmpty()
+    fun getUserId(): String = Firebase.auth.currentUser?.uid.orEmpty()
 
     suspend fun createUser(
-        email:String,
-        password:String,
-        onComplete:(Boolean) ->Unit
-    ) = withContext(Dispatchers.IO){
+        email: String,
+        password: String,
+        onComplete: (Boolean) -> Unit
+    ) = withContext(Dispatchers.IO) {
         Firebase.auth
             .createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
-                if (it.isSuccessful){
+                if (it.isSuccessful) {
                     onComplete.invoke(true)
-                }else{
+                } else {
                     onComplete.invoke(false)
                 }
             }.await()
     }
-     suspend fun login(
-        email:String,
-        password:String,
-        onComplete:(Boolean) ->Unit
-    ) = withContext(Dispatchers.IO){
+
+    suspend fun login(
+        email: String,
+        password: String,
+        onComplete: (Boolean) -> Unit
+    ) = withContext(Dispatchers.IO) {
         Firebase.auth
             .signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
-                if (it.isSuccessful){
+                if (it.isSuccessful) {
                     onComplete.invoke(true)
-                }else{
+                } else {
                     onComplete.invoke(false)
                 }
             }.await()
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

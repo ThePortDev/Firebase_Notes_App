@@ -152,20 +152,3 @@ data class LoginUiState(
     val signUpError: String? = null,
     val loginError: String? = null,
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

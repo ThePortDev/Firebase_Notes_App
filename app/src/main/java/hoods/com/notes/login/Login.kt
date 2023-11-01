@@ -31,12 +31,12 @@ fun LoginScreen(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-       Text(
-           text = "Login",
-           style = MaterialTheme.typography.h3,
-           fontWeight = FontWeight.Black,
-           color = MaterialTheme.colors.primary
-       )
+        Text(
+            text = "Login",
+            style = MaterialTheme.typography.h3,
+            fontWeight = FontWeight.Black,
+            color = MaterialTheme.colors.primary
+        )
 
         if (isError){
             Text(
@@ -134,12 +134,12 @@ fun SignUpScreen(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-       Text(
-           text = "Sign Up",
-           style = MaterialTheme.typography.h3,
-           fontWeight = FontWeight.Black,
-           color = MaterialTheme.colors.primary
-       )
+        Text(
+            text = "Sign Up",
+            style = MaterialTheme.typography.h3,
+            fontWeight = FontWeight.Black,
+            color = MaterialTheme.colors.primary
+        )
 
         if (isError){
             Text(
@@ -215,7 +215,6 @@ fun SignUpScreen(
             TextButton(onClick = { onNavToLoginPage.invoke() }) {
                 Text(text = "Sign In")
             }
-
         }
 
         if (loginUiState?.isLoading == true){
@@ -227,16 +226,7 @@ fun SignUpScreen(
                 onNavToHomePage.invoke()
             }
         }
-
-
-
-
-
-
-
     }
-
-
 }
 
 @Preview(showSystemUi = true)
@@ -255,23 +245,7 @@ fun PrevLoginScreen() {
 fun PrevSignUpScreen() {
     NotesTheme {
         SignUpScreen(onNavToHomePage = { /*TODO*/ }) {
-            
+
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
